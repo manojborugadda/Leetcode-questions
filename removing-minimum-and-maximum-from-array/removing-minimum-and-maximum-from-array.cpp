@@ -15,7 +15,7 @@ public:
         Case 1 : Removing both element from front 
                  max(minInd, maxInd)
         Case 2 : Removing both element from Back
-                 n - min(minInd, maxInd) + 1
+                 n - min(minInd, maxInd)
         Case 3 : Removing One element from front and One element from the Back
                  min(minInd,maxInd) + n - max(maxInd, minInd) + 1
 
