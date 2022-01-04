@@ -1,24 +1,16 @@
-bool isIsomorphic(string s, string t) {
-if(s.length()!=t.length()) return false;
-unordered_map<char,char>smap,tmap;
-for(int i=0; i<s.size(); i++){
-if(smap.count(s[i])==0){
-if(tmap.find(t[i])!=tmap.end()) return false;
-smap[s[i]]=t[i];
-tmap[t[i]]=s[i];
-} else if(t[i]!=smap[s[i]]) return false;
-}
-return true;
-}
-bool isIsomorphic(string s, string t) {
-if(s.length()!=t.length()) return false;
-unordered_map<char,char>smap,tmap;
-for(int i=0; i<s.size(); i++){
-if(smap.count(s[i])==0){
-if(tmap.find(t[i])!=tmap.end()) return false;
-smap[s[i]]=t[i];
-tmap[t[i]]=s[i];
-} else if(t[i]!=smap[s[i]]) return false;
-}
-return true;
-}
+```
+// bool isIsomorphic(string s, string t) {
+//     char map_s[128] = { 0 };
+//     char map_t[128] = { 0 };
+//     int len = s.size();
+//     for (int i = 0; i < len; ++i)
+//     {
+//         if (map_s[s[i]]!=map_t[t[i]]) return false;
+//         map_s[s[i]] = i+1;
+//         map_t[t[i]] = i+1;
+//     }
+//     return true;
+// }
+```
+​
+https://www.youtube.com/watch?v=VEuPGTIqXeQ
