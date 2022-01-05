@@ -13,6 +13,7 @@ return false;
 }
 return true;
 }
+                                                        
 bool wordPattern(string pattern, string str) {
 stringstream ss(str);
 string word;
