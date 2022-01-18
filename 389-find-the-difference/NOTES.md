@@ -11,6 +11,9 @@ return it.first;
 }
 }
 return 0;
+
+
+
 // second method
 map<char, unsigned int> smap, tmap;
 char unique;
@@ -24,6 +27,8 @@ break;
 }
 return unique;
 }
+
+
 // third method
 char c;
 unordered_map<char,int>m;
