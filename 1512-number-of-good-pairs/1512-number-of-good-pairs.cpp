@@ -2,12 +2,16 @@ class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums)
     {
-        unordered_map<int,int> hm;
-        int result = 0;
-        for(int i = 0; i < nums.size(); i++) {
-            result += hm[nums[i]];
-            hm[nums[i]]++;
+      unordered_map<int,int> frequency;
+        int good_pair=0;
+        for(auto num : nums)
+        {
+            if(frequency.find(num) != frequency.end()){ // if we have already seen this element such that i<j
+                good_pair+=frequency[num]; // add the number of time u have seen it 
+            }
+            
+            frequency[num]++;
         }
-        return result;
+        return good_pair;   
     }
 };
