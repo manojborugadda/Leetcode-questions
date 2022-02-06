@@ -22,9 +22,9 @@ public:
             priority_queue<ListNode* ,vector<ListNode*>,mycmp > q;
         // by default it is MAX HEAP so we are converting by adding COMPARATOR  function "mycmp" so it works as MIN HEAP
         
-            for(ListNode* x : lists){
+        for(ListNode* x : lists){
                 if(x) q.push(x);
-            }
+        }
         
         ListNode* head = NULL;
         ListNode* tail = NULL;
@@ -34,17 +34,27 @@ public:
             ListNode*x = q.top();
             q.pop();
             
-            if(head==NULL){
-                tail = x;
-                head = tail;
-            }
-            else{
-                tail->next = x;
-                tail = x;
-            }
-            
-            if(x->next)q.push(x->next);
+            //check if the head is null or not
+		if(head == NULL)
+		{
+            head = x;
+            tail = x;
         }
+		
+		//if head is not null
+        else{
+		  //head will remain the same and tail will iterate to the next node
+            tail -> next = x;
+            tail = x;
+        }
+        
+		//if x is not null, push the next element of x in the priority queue
+        if(x->next) 
+		{
+			q.push(x->next);
+		}
+            
+    }
         
          return head;   
     }
