@@ -8,8 +8,9 @@ public:
             else if(!isalnum(s[r]) || s[r] == ' ')
                 r--;
             else{
-                if(tolower(s[l])!=tolower(s[r]))
+                if(tolower(s[l])!=tolower(s[r])){
                     return false;
+                  }
                 l++;
                 r--;
             }//end else   
