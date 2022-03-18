@@ -1,42 +1,25 @@
 class Solution {
 public:
-    string removeKdigits(string num, int k) 
-    {
-        
-        // let the number is 1423
-        // smallest number is 123 if any number has a small number infront of             // it than we can remove that previous number
-        
-        stack<char>s;
-        for(int i=0;i<num.size();i++)
-        {
-            while(k>0 and s.size()>0 and s.top()>num[i])
-            {
-                s.pop();
-                k--;
+    string removeKdigits(string num, int k) {
+        string res = "";
+        for (int i = 0; i < num.length(); i++) {
+            // remove digits from back of res which are greater than our current char 
+            while(!res.empty() && res.back() > num[i] && k > 0) {
+                res.pop_back();
+			    k--;
             }
-            s.push(num[i]);
-        }
+            
+            // do not push leading zeros  
+            if(!res.empty() || num.at(i) != '0')
+                res.push_back(num[i]);
+          }
         
-        // to handle case like "1234567"   just remove from back
-        
-        while(k>0)
-        {
-            s.pop();
+        // make sure k characters are deleted
+        while(!res.empty() && k) {
+            res.pop_back(); 
             k--;
         }
-        // reverse a string
-        string ans=""; 
-        while(!s.empty()){
-            ans += s.top(); 
-            s.pop();
-        }
-        reverse(ans.begin(),ans.end());
-         int i=0;
-		/* corner case : count the leading number of zeros*/
-        while(ans[i] == '0'){
-            i++;
-        }
-		
-        return (ans.substr(i) == "")? "0": ans.substr(i);
+        
+        return res.empty() ? "0" : res;
     }
 };
