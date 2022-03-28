@@ -26,7 +26,8 @@ public:
                         mp[x.first]=min(x.second, mp1[x.first]);
                        }
                 }
-                else{
+                else
+                    {
                      mp.erase(mp.find(x.first));
                     }
                 }
