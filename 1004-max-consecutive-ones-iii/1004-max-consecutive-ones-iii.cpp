@@ -4,7 +4,7 @@ public:
         int i = 0, ans = 0, zero_count = 0;
         for(int j = 0;j<nums.size();j++){
             if(nums[j]==0) zero_count++;
-            while(zero_count > k){ // if "zero count" is greater than "k" , we  move "i" while checking if nums[i] is 0 are not and decreasing the zero count untill it equals K
+            while(zero_count > k){ // if "zero count" is greater than "k", we  move "i" while checking if nums[i] is 0 are not and decreasing the zero count untill it equals K
                 if(nums[i]==0) zero_count--;
                 i++;
             }
