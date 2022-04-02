@@ -2,7 +2,8 @@ class Solution {
 public:
     int tribonacci(int n)
     {
-    if(n == 0 || n == 1){  // DP using tabulation method...........
+    if(n == 0 || n == 1)
+    {  // DP using tabulation method...........
         return n;
     }
         
