@@ -10,7 +10,7 @@ public:
         
         while(left<=right and top<=bottom){
             
-               if(direction==1){  // filling from left to right of the matrix
+               if(direction==1){  // filling from left to right of the matrix where "row" is fixed
                    for(int i = left;i<=right;i++){
                        ans[top][i] = k++;
                    }
@@ -19,7 +19,7 @@ public:
                    top++;
                }
             
-            if(direction==2){ // filling from top to bottom in the matrix
+           else if(direction==2){ // filling from top to bottom in the matrix where column is fixed
                 for(int i = top;i<=bottom;i++){
                     ans[i][right] = k++;
                 }
@@ -27,7 +27,7 @@ public:
                 right--;
             }
             
-            if(direction ==3){ // filling from right to left in the matrix
+           else if(direction ==3){ // filling from right to left in the matrix where row is fixed
                 for(int i = right ;i>=left;i--){
                     ans[bottom][i] = k++;
                 }
@@ -36,7 +36,7 @@ public:
                 bottom--;
             }
             
-            if(direction == 4){ // filling from bottom to top in the matrix
+           else if(direction == 4){ // filling from bottom to top in the matrix
                 for(int i = bottom;i>=top;i--){
                     ans[i][left]= k++;
                 }
