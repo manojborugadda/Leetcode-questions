@@ -1,56 +1,44 @@
 class Solution {
-public:
-    //use find the bridges in a graph approach to get all critical connections
-	//Tarjans Algorithm / DFS
-    void dfs(int node, int parent, vector<int> &tin, vector<int> &low, vector<int> &vis, vector<int> graph[], vector<vector<int>> &ans, int &time)
+    unordered_map<int,vector<int>> adj; //Adj list
+    void DFS(int u,vector<int>& disc,vector<int>& low,vector<int>& parent,vector<vector<int>>& bridges)
     {
-        //when we visite node first time, tin and low of the node are equal to the time
-        tin[node]=low[node]=time++;
-        vis[node] = 1; //mark node as visited
+        static int time = 0;    //timestamp
+        disc[u] = low[u] = time;
+        time +=1;
         
-        for(auto it : graph[node])
+        for(int v: adj[u])
         {
-            if(it == parent) continue; //to avoid backtracking
-            
-            //if node is not visited, call the dfs function
-            if(!vis[it])
+            if(disc[v]==-1) //If v is not visited
             {
-                dfs(it, node, tin, low, vis, graph, ans, time);
+                parent[v] = u;
+                DFS(v,disc,low,parent,bridges);
+                low[u] = min(low[u],low[v]);
                 
-                //when we return, low of the node is equal to the minimum of low of its child and low of itself
-                low[node] = min(low[node], low[it]);
-                
-                //when we get low of child is greater than tin of the node
-                //it means there is only path to cover child that's why {node, it} will be our critical connections or bridge 
-                if(low[it] > tin[node])
-                    ans.push_back({node, it});
+                if(low[v] > disc[u])
+                    bridges.push_back(vector<int>({u,v}));
             }
-            
-            //if node is already visited and tin of the child is less than the low of itself
-            //we assign tin of the child to the low of the node
-            else
-                low[node] = min(low[node], tin[it]);
-            
+            else if(v!=parent[u])   //Check for back edge
+                low[u] = min(low[u],disc[v]);
         }
     }
-    vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) 
+    void findBridges_Tarjan(int V,vector<vector<int>>& bridges)
     {
-        //tin - time of insertion at the node
-        //low - lowest time of insertion at the node
-        //vis - mark visited node 
-        vector<int> tin(n, -1), low(n, -1), vis(n, 0);
-        vector<vector<int>> ans;
-        vector<int> graph[n]; //stores connections in the form of graph
-        int time=0;
-        
-        for(auto it: connections)
+        vector<int> disc(V,-1),low(V,-1),parent(V,-1);
+        //Apply DFS for each component
+        for(int i=0;i<V;++i)
+            if(disc[i]==-1)
+                DFS(i,disc,low,parent,bridges);
+    }
+public:
+    vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
+        for(int i=0;i<connections.size();++i)   //Make Adj list
         {
-            graph[it[0]].push_back(it[1]);
-            graph[it[1]].push_back(it[0]);
+            adj[connections[i][0]].push_back(connections[i][1]);
+            adj[connections[i][1]].push_back(connections[i][0]);
         }
         
-        //call dfs function
-        dfs(0, -1, tin, low, vis, graph, ans, time);
-        return ans;
+        vector<vector<int>> bridges; //Store all the bridges as pairs
+        findBridges_Tarjan(n,bridges);
+        return bridges;
     }
 };
