@@ -8,13 +8,13 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+class Solution {  // TWO Pointer approach  TC:O(N) 
 public:
     ListNode* deleteMiddle(ListNode* head) {
         
         if(head->next == NULL) return NULL; // if there is only one element in the Linkedlist
         
-      ListNode* fast = head , *slow = head , *prev_of_slow = head;
+      ListNode* fast = head , *slow = head , *prev_of_slow = NULL;
         
         while(fast!=NULL and fast->next!=NULL){
             prev_of_slow = slow;
@@ -22,14 +22,7 @@ public:
             fast = fast->next->next;
         }
         prev_of_slow->next = slow->next;  /// pointing the prev of slow to next of slow pointer
-        
-        return head;  /// returning the head
-        
-        
-        
-        
-        
-        
-        
+        delete slow;  // deleting the slow pointer which is MIDDLE node of the LinkedList
+        return head;  /// returning the head   
     }
 };
