@@ -14,7 +14,7 @@ public:
         
         if(head->next == NULL) return NULL; // if there is only one element in the Linkedlist
         
-      ListNode* fast = head , *slow = head , *prev_of_slow = NULL;
+      ListNode* fast = head , *slow = head , *prev_of_slow = head;
         
         while(fast!=NULL and fast->next!=NULL){
             prev_of_slow = slow;
@@ -22,7 +22,7 @@ public:
             fast = fast->next->next;
         }
         prev_of_slow->next = slow->next;  /// pointing the prev of slow to next of slow pointer
-        delete slow;  // deleting the slow pointer which is MIDDLE node of the LinkedList
+        
         return head;  /// returning the head   
     }
 };
