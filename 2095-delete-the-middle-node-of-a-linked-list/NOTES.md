@@ -1,1 +1,1 @@
-https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/discuss/2087342/Two-Pointer(slow-and-fast)-oror-Easy-Solution-oror-C%2B%2B
+​
