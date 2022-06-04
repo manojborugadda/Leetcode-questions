@@ -1,0 +1,1 @@
+https://leetcode.com/problems/n-queens/discuss/2108640/C%2B%2B-oror-Backtracking-%2B-Optimization-oror-Easy-to-Understand
