@@ -1,0 +1,1 @@
+https://leetcode.com/problems/binary-tree-cameras/discuss/1211754/C%2B%2B-Simple-Clean-and-Short-Solution-Faster-Than-97
