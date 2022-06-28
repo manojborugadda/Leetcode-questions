@@ -1,8 +1,7 @@
 class Solution {
 public:
     int minDeletions(string s) {
-        sort(s.begin(),s.end());
-        reverse(s.begin(),s.end()); //DECREASING order
+       
         map<char,int>mp;
         
         for(auto x:s){   // insert all elements in map
