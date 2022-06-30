@@ -47,3 +47,13 @@ public:
         return ans;
     }
 };
+
+
+/*A bit wise XOR (exclusive or) operates on the bit level and uses the following Boolean truth table:
+
+true OR true = false
+true OR false = true
+false OR false = false
+
+
+*/
