@@ -1,4 +1,4 @@
-https://www.youtube.com/watch?v=Umqh2XOGtD8
+https://www.youtube.com/watch?v=a5uTA1kJsa4
 ​
 ```
 int minCostClimbingStairs(vector<int>& cost) {
