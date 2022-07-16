@@ -1,0 +1,1 @@
+same  or it is a variant of https://leetcode.com/problems/max-area-of-island/
