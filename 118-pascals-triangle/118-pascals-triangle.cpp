@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //TC:O(N*2)
 public:
     vector<vector<int>> generate(int numRows) {
 	vector<vector<int>> ret;
