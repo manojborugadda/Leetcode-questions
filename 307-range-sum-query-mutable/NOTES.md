@@ -13,3 +13,5 @@ https://leetcode.com/problems/range-sum-query-mutable/discuss/2256145/C%2B%2B-or
 https://leetcode.com/problems/range-sum-query-mutable/discuss/2214661/Segment-Tree-Pointers-Implementation-oror-C%2B%2B-oror-Easy
 ​
 ​
+https://leetcode.com/problems/range-sum-query-mutable/discuss/696254/C%2B%2B-Simple-Segment-Tree-Solution
+​
