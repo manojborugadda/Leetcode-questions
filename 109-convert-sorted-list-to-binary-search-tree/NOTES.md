@@ -1,6 +1,9 @@
-​class Solution { //TC:O(N) as we traverse all the elements in the nums array
-                //SC:O(logn) height of the Balance BST
+
+
+
+class Solution { 
 public:
+
     TreeNode* sortedListToBST(ListNode* head) {
         //inserting the elements into the VECTOR from the List
         vector<int>arr;
@@ -8,7 +11,6 @@ public:
             arr.push_back(head->val);
             head  = head->next;
         }
-        
         return convertBST(0,arr.size()-1,arr);
     }
     
@@ -21,3 +23,7 @@ public:
         return root;
     }
 };
+
+//TC:O(N) as we traverse all the elements in the nums array
+
+//SC:O(logn) height of the Balance BST
