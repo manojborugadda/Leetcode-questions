@@ -1,4 +1,4 @@
-class Solution { //TC:O(N^2) SC:O(N)
+class Solution { //TC:O(NMlogN) (where M - length of the word) to O(N*M) ... SC:O(N)
 public:
     int uniqueMorseRepresentations(vector<string>& words) {
         vector<string>code  = {
@@ -18,3 +18,5 @@ public:
         return st.size();
     }
 };
+
+//An improvement: we can use hashmap(unordered_map in c++) to reduce complexity from O(NMlogN) (where M - length of the word) to O(N*M) as adding to the hashmap works in O(1)complexity.
