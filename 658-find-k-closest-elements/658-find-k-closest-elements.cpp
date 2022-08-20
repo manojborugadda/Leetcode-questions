@@ -1,8 +1,10 @@
-class Solution {
-public: // priority_queue<int, vector<int>, greater<int>> q)
+class Solution { ///TC:O(NlogN) SC:O(N)
+public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+        
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
-        vector<int>ans;
+        vector<int>ans;//answer vector
+        
         for(int i = 0;i<arr.size();i++) {
             pq.push({abs(arr[i]-x),arr[i]});
         }
