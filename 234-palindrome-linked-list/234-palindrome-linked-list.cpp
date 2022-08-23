@@ -37,13 +37,19 @@ public:
         ListNode* prev = NULL , *temp = NULL;
         
         while(mid != NULL){
+             // keep the temp node         
             temp = mid->next;
+            //Now changing the next of "mid" is where the reversing takes place    
             mid->next = prev;
+            // Moving the previous and mid forward for one step         
             prev = mid;
             mid = temp;
         }
         
+        
+        
         // now "prev" becomes the HEAD of the REVERSED elements in the LinkedList
+        // comparing HEAD with PREV
         while(prev != NULL){
             if(prev->val != head->val) return false;
             //else
