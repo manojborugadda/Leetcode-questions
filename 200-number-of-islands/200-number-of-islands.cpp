@@ -7,7 +7,7 @@ public:
         if(i< 0 or i>= R or j<0 or j>=C or grid[i][j]== '0'){
             return 0;
         }
-        //else
+        //  grid[i][j]== '1'
         grid[i][j] = '0';
         dfs(grid,i+1,j,R,C);
         dfs(grid,i-1,j,R,C);
