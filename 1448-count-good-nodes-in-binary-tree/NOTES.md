@@ -1,0 +1,1 @@
+https://leetcode.com/problems/count-good-nodes-in-binary-tree/discuss/2511560/Faster-oror-Easy-To-Understand-oror-C%2B%2B-Code
