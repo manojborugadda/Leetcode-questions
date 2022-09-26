@@ -1,37 +1,53 @@
-class Solution {  //TC:O(N)  SC:O(1)
-private:
-    int par[26], sz[26];
+class Solution {
 public:
-    int anc(int x) { // Path compression
-        if (par[x] == x) return x;
-        return par[x] = anc(par[x]);
+    
+    int parent[26];
+    int Size[26];
+    
+    int find(int v){
+        if(v == parent[v]){
+            return v;
+        }
+        return parent[v] = find(parent[v]);
     }
-    void join(int x, int y) { // Union by size
-        int anc_x = anc(x), anc_y = anc(y);
-        if (sz[anc_x] > sz[anc_y]) swap(anc_x, anc_y);
-        par[anc(x)] = anc(y);
+    
+    void Union(int a, int b){
         
-        return;
+        a = find(a);
+        b = find(b);
+        
+        if(a!=b){
+            if(Size[a] < Size[b]){
+                swap(a,b);
+            }
+            parent[b] = a;
+            Size[a] += Size[b];
+        }
     }
     
     bool equationsPossible(vector<string>& equations) {
-        for (int i = 0; i < 26; i++) {
-            sz[i] = 1;
-            par[i] = i;
+        for(int i=0;i<26;i++){
+            parent[i] = i;
+            Size[i] = 1;
         }
-        for (string& s : equations) {
-            int u = s[0] - 'a', v = s[3] - 'a';
-            if (s[1] == '=')   
-                if (anc(u) != anc(v))
-                    join(u, v);   
+        
+        for(auto x : equations){
+            if(x[1] == '=')
+                Union(x[0]-'a', x[3]-'a');
         }
-        for (string& s : equations) {
-            int u = s[0] - 'a', v = s[3] - 'a';
-            if (s[1] == '!')   
-                if (anc(u) == anc(v))
-                    return false;                   
-        }
+                
+        for(auto x : equations){
 
+            if(x[1] == '!'){
+                int a = find(x[0]-'a');
+                int b = find(x[3]-'a');
+                
+                if(a == b){
+                    return false;
+                }
+            }
+        }
+        
         return true;
     }
 };
