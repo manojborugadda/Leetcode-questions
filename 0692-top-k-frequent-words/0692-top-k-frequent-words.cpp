@@ -4,6 +4,7 @@ public:
     struct comparator {
     bool operator()(const pair<string,int> p1 , const pair<string,int> p2) {
         return (p1.second == p2.second) ? (p1.first > p2.first) : (p1.second  < p2.second);
+        //syntax in MinHeap is shown int the implementation of comparator and it is different
     }
 };
     
