@@ -1,28 +1,21 @@
-class Solution { //TC:O(nlogn)  SC:O(N)
-    public int earliestFullBloom(int[] plantTime, int[] growTime) {
-        List<Seed>plant = new ArrayList<>();
-        for(int i = 0;i<plantTime.length;i++) {
-            plant.add(new Seed(plantTime[i],growTime[i]));
+class Solution {
+public:
+    int earliestFullBloom(vector<int>& plantTime, vector<int>& growTime) {
+        
+        vector<pair<int,int>>v;
+        
+        for(int i = 0;i<plantTime.size();i++){
+            v.push_back({growTime[i],plantTime[i]});   
         }
         
-        //sorting  in Decreasing order with respective to GrowTime array
-        Collections.sort(plant,(a,b)->(b.growTime - a.growTime));
+        //sorting the vector in DECREASING order
+        sort(begin(v),end(v),greater<>());
         
-        int time = 0 , max = 0;
-        for(int i = 0;i<plantTime.length;i++) {
-            time += plant.get(i).plantTime;
-            max  = Math.max(max,time + plant.get(i).growTime);
+        int time = 0 , maxi = 0;
+        for(int i = 0;i<plantTime.size();i++) {
+            time += v[i].second;
+            maxi = max(maxi,time+v[i].first);
         }
-        return max;
+        return maxi;
     }
-    
-    private class Seed {
-        int plantTime;
-        int growTime;
-        
-        public Seed(int p , int g) {
-            this.plantTime = p;
-            this.growTime = g;
-        }
-    }
-}
+};
