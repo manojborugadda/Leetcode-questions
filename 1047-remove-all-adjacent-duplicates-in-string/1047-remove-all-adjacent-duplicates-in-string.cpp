@@ -13,11 +13,11 @@ public:
                 st.push(x);
             }
         }
+        
         while(st.empty() == false){ // pushing all the elements to the answer String
             ans = st.top()+ans;
             st.pop();
         }
-       // reverse(ans.begin(),ans.end()); // reversing the string
         return ans;
     }
 };
