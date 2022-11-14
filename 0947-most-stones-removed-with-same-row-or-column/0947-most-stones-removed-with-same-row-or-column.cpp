@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //TC:O(N^2) SC:O(N)
 public:
     vector<int>parent,size;
     int removeStones(vector<vector<int>>& stones) {
