@@ -16,11 +16,7 @@ public:
         
         //building the resultant string in the frequencies of DESCENDING order
         while( pq.empty() == false) {
-            char ch = pq.top().first;
-            int times = pq.top().second;
-            //ans += string(ch,times);
             ans.append(pq.top().first,pq.top().second);
-
             pq.pop();
         }      
         return ans;
