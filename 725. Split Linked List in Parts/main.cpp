@@ -39,7 +39,8 @@ public:
         }
         return ans;
     }
-
+    
+    
     int totalCount(ListNode* root) {
         int n = 0;
         while(root) {
