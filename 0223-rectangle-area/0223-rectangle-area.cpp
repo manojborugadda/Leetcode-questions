@@ -14,7 +14,6 @@ public:
         if(len > 0 and brd > 0) {
             overalapped_area = len * brd;
         }
-        
         return area1 + area2 - overalapped_area;
     }
 };
