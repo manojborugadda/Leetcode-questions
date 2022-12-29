@@ -1,4 +1,4 @@
-class Solution {
+class Solution { 
 public:
     int calculate(string s) {
         int res = 0 , sign = 1;
