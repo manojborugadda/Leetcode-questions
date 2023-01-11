@@ -5,7 +5,7 @@ public:
  
     MedianFinder() {
         
-    }
+    } 
     
     void addNum(int num) {
         //if the MAXHEAP size is greater than 0 and its top element is less than incoming element we PUSH it to MINHEAP
