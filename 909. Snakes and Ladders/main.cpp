@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //TC:O(N^2)  SC:O(N^2)
 public:
     int snakesAndLadders(vector<vector<int>>& board) {
         int n = board.size();
