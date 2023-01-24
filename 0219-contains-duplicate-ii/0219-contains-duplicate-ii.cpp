@@ -11,5 +11,5 @@ public:
             map[nums[i]] = i;  //insert into the HASHMAP element as KEY and index as VALUE
         }
         return false;
-    }
+    } 
 };
