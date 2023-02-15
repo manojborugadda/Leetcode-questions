@@ -10,7 +10,7 @@
  * };
  */
 class Solution {  // TC:O(N)  SC:O(N) 
-public:
+public: 
     bool isSymmetric(TreeNode* root) {
         if(root == NULL) return true;
         return isMirror(root,root);
