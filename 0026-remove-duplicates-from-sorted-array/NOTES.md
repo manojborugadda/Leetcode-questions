@@ -21,4 +21,4 @@ nums[p1]=nums[p2];
 }
 }
 // p1 location is the final indice of the
-// unique element subarray at the beginning of nums vector
+// unique element subarray at the beginning of nums vector 
