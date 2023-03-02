@@ -17,3 +17,4 @@ public:
         return area1 + area2 - overalapped_area;
     }
 };
+ 
