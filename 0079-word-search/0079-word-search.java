@@ -20,7 +20,7 @@ class Solution { // T: O(R * C * (4 ^ w)), where R ,C are the dimensions of the 
            j > board[0].length-1 ||
            word.charAt(index) != board[i][j]) {
             return false;
-        }
+        } 
         
         char temp  = board[i][j];//mark as visited
         board[i][j] = ' ';  //
