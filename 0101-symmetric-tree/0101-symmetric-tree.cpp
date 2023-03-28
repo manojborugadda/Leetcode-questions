@@ -26,3 +26,4 @@ private:
     
     //the catch of the probem is we have to check subtrees if they are mirrors to each others
 };
+ 
