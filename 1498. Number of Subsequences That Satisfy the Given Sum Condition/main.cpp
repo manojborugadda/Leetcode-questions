@@ -17,7 +17,7 @@ public:
             if(nums[left] + nums[right] > target) {
                 right--;
             }else {
-                ans += (pow[right-left])%MOD;
+                ans = (ans + pow[right-left])%MOD;
                 left++;
             }
         }
