@@ -19,7 +19,7 @@ public:
         if(index == word.length()) return true;
         if(i < 0 or j < 0 or i > board.size()-1 or j > board[0].size()-1 or word[index] != board[i][j]) {
             return false;
-        }
+        } 
         
             //mark as visited
         char temp  = board[i][j];
