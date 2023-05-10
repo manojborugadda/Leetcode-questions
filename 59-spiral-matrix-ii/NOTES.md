@@ -1,7 +1,8 @@
 https://www.youtube.com/watch?v=-2DdS-SnBGg
-​
+
+
 // alternative solution
-​
+''
 vector<vector<int>> generateMatrix(int n) {
 vector < vector <int> > res(n, vector<int>(n, 0));
 int total = n*n, start = 1;
@@ -20,3 +21,4 @@ n -= 2;
 }
 return res;
 }
+''
