@@ -5,7 +5,7 @@ class Solution {
 public:
 int removeDuplicates(vector<int>& nums) {
 // Optimal Solution
-// Time O(N) & Auxiliary Space O(1)
+// Time O(N) & Auxiliary Space O(1) 
 // Two Pointer Method
 int len=nums.size();
 if(len==0)
