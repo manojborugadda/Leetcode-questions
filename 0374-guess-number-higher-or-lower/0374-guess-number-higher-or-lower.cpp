@@ -9,7 +9,7 @@
 
 // here we are using BINARY SEARCH 
 class Solution {  //TC:O(logn)  SC:O(1)
-public:
+public: 
     int guessNumber(int n) {
         long low = 1 ,  high = n; 
         while(low <= high) {
