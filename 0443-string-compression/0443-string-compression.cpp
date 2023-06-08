@@ -5,7 +5,7 @@ public:
         if(n == 1 or n == 0 ) return n;
         string s1 = "";
         char prev = chars[0];
-        int count = 1;
+        int count = 1; 
         for(int i = 1;i<n;i++) {
             if(chars[i] == prev) {
                 count++;
