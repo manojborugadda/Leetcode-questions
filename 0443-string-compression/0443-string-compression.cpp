@@ -1,7 +1,7 @@
 class Solution {  //TC:O(N)  SC:O(1)
 public:
     int compress(vector<char>& chars) {
-        int n = chars.size();
+        int n = chars.size(); 
         if(n == 1 or n == 0 ) return n;
         string s1 = "";
         char prev = chars[0];
