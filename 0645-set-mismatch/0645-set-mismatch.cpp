@@ -6,7 +6,7 @@ public://               using HASHMAPS
         unordered_map<int,int>map;
         //checking if any element is repeated  and if YES we push that into the ans vector
         for(int i:nums) {
-            if(map.find(i)!=map.end()) ans.push_back(i);
+            if(map.find(i)!=map.end()) ans.push_back(i); 
             map[i]++;
         }
         
