@@ -3,7 +3,7 @@ https://www.youtube.com/watch?v=4wPlA_InnGY
 ```
 //TC:O(N) solution , it just traversing all nodes and counting
 class Solution {
-public:
+public: 
 int count = 0;
 void helper(TreeNode* root){
 if(root)
