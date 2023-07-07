@@ -2,7 +2,7 @@ class RandomizedSet { //TC:O(1) SC:O(N)
 public:
      
     unordered_map<int,int>map; //storing the ELEMENT and and its INDEX in the Map
-    vector<int>v;
+    vector<int>v; 
     RandomizedSet() {
         
     }
