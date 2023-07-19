@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=znayqMBqaKo
 
-
+https://leetcode.com/problems/minimum-index-of-a-valid-split/solutions/3779256/moore-s-voting-algo-easy-o-1-space-or-use-hashmap-o-n-space/
 
 ```
 /* Approach : Majority Element (Boyer - Moore)
