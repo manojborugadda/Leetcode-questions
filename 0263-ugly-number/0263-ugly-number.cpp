@@ -3,7 +3,7 @@ public:
     bool isUgly(int n) {
         if(n < 1) return false;
         if(n == 1) return true;
-        if(n%2 == 0) {
+        if(n%2 == 0) { 
            return isUgly(n/2);
         }
         if(n%3 == 0) {
