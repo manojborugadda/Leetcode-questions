@@ -5,7 +5,7 @@ public:
         
         map<char,int> mp;
         
-       for(int i=0;i<words[0].size();i++){
+       for(int i=0;i<words[0].size();i++){ 
            mp[words[0][i]]++;
        }
 
