@@ -21,7 +21,7 @@ public:
     //removing ith alphabet from the string and check remaining string is available in the DP 
                 string predecessor = word.substr(0,i)+word.substr(i+1);
                 if(dp.find(predecessor)!=dp.end()){
-                    dp[word] = 1+dp[predecessor];
+                    dp[word] = max(dp[word] , 1+dp[predecessor]);
                     len = max(len,dp[word]);
                 }
             }
