@@ -1,0 +1,1 @@
+https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/solutions/4388310/video-give-me-5-minutes-2-solutions-how-we-think-about-a-solution/?envType=daily-question&envId=2023-12-11
