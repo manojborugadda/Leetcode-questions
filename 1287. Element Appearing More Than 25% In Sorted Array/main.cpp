@@ -1,0 +1,13 @@
+class Solution {//TC:O(N-QUARTER)  SC:O(1)
+public:
+    int findSpecialInteger(vector<int>& arr) {
+        int n = arr.size();
+        int quarter = n/4;
+        for(int i = 0;i<n-quarter;i++) {
+            if(arr[i] == arr[i+quarter]) {
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+};
