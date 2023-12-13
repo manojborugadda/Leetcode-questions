@@ -1,4 +1,4 @@
-class Solution {//TC:O(n*m)  SC:O(1)
+class Solution {//TC:O(n*m)  SC:O(m+n)
 public:
     int numSpecial(vector<vector<int>>& mat) {
        int m = mat.size();
