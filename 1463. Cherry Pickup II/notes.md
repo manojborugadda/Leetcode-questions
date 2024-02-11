@@ -2,3 +2,6 @@ https://leetcode.com/problems/cherry-pickup-ii/solutions/4710140/simple-cpp-solu
 
 tc: O(m  * n^2)
 sc:o(m * n^ 2)
+
+
+for explanation ------- https://www.youtube.com/watch?v=VsEVsSlBypY
