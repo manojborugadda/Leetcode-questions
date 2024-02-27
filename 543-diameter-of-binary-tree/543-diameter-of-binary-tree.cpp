@@ -9,30 +9,22 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution {//TC:O(N)  SC:O(N) --> due to the recursive function calls and the space required for the call stack.
 public:
-    int height(TreeNode *root,int &d)    /// we take the maximum of (heights of right subtree and left subtree
-{
-    if(root == NULL)
-    {
-        return -1;
+    int diameter = INT_MIN;
+    int heightTree(TreeNode* root) {
+        if(!root) return 0;
+        int leftHeight = heightTree(root->left);
+        int rightHeight = heightTree(root->right);
+        diameter = max(diameter,leftHeight + rightHeight);
+        return max(leftHeight,rightHeight) + 1;
     }
-    int Leftree = height(root->left,d);
-    int Rightree = height(root->right,d);
-    d = max(d, Leftree + Rightree + 2);
-    return max(Leftree , Rightree) + 1;
-}
-    
-    
-    int diameterOfBinaryTree(TreeNode* root) 
-    {
-        
-    int d;
-    d = 0;
-    height(root,d);
-    return d;
-        
-    }
-    
-    
+
+    int diameterOfBinaryTree(TreeNode* root) {
+        heightTree(root);
+        return diameter;
+    } 
+    /*
+    Calculate height at reach level for each left and right side of tree and compare diameter with the sum of both heights.
+    **/
 };
