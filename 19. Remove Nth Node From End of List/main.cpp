@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
+    ListNode* removeNthFromEnd(ListNode* head, int n) {//TC:O(N) SC:O(1)
         ListNode* curr = head;
         int nodesCount = 0;
         while(curr!= NULL) {//calculating total no of NODES in the LinkedList
