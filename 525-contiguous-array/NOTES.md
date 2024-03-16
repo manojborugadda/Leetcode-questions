@@ -1,12 +1,4 @@
-///python solution----------------
-dic = {}
-sum = count = 0
-for i in range(len(nums)):
-sum += 1 if nums[i] == 1 else -1
-if sum == 0:
-count = max(count,i + 1)
-elif(sum in dic):
-count = max(count,i - dic[sum])
-else:
-dic[sum] = i
-return count
+ https://www.youtube.com/watch?v=9ZyLjjk536U
+ 
+
+https://leetcode.com/problems/contiguous-array/solutions/4881594/easy-solution-using-hashmap-c-hashmap/?envType=daily-question&envId=2024-03-16
