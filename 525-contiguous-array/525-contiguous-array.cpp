@@ -1,34 +1,20 @@
-class Solution {
+class Solution {//TC:O(N)  SC:O(N)
 public:
-    int findMaxLength(vector<int>& nums){ 
-        unordered_map<int,int> mymap;
-        int sum = 0;
-        int longest_subarray = 0;
-        
-        for(int i=0;i<nums.size();++i)
-        {
-            sum += nums[i]==0?-1:1;       // we add '1' if element is ONE and add '-1' if the element if ZERO
-            
-            if(sum==0)
-            {
-                if(longest_subarray < i+1)
-                    longest_subarray = i+1;
+    int findMaxLength(vector<int>& nums) {
+        int n = nums.size();
+        unordered_map<int,int>map;
+        int maxLen = 0 , sum = 0;
+        map[0] = -1;//initialising with 0 sum at index -1
+        for(int i = 0;i<n;i++) {
+            sum += (nums[i] == 1) ? 1 : -1; //increment sum with 1 if we met with 1 and decrement with -1 if we encounter 0 in the nums vector
+
+//if the same sum is encountered in the MAP it means we got contiguous subarray with an equal number of 0 and 1.
+            if(map.count(sum)) { 
+                maxLen = max(maxLen, i - map[sum]);
+            }else {//if we didnot get the sum before we insert into the MAP
+                map[sum] = i;
             }
-            else if(mymap.find(sum)!=mymap.end())
-            {
-                if(longest_subarray < i-mymap[sum])
-                    longest_subarray = i-mymap[sum];
-            }
-            else
-                mymap[sum] = i;
         }
-        
-        return longest_subarray;
+        return maxLen;
     }
-    
-    
-    
-    
-  //  https://www.youtube.com/watch?v=9ZyLjjk536U
-    
 };
