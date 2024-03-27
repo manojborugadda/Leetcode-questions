@@ -1,19 +1,19 @@
-class Solution {
+class Solution {//TC:O(N)  SC:O(1)
 public:
-    int numSubarrayProductLessThanK(vector<int>& nums, int k) 
-    {   if(k<=1) return 0;  // product cannot be less than 1
-        int n = nums.size(); 
-        int count = 0 , prod = 1 , j = 0;
-     
-        for(int i=0;i<n;i++){
-                prod = prod * nums[i];
-            while(prod >= k){
-                prod = prod/nums[j];
-                j++;
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {//sliding window problem
+        int n = nums.size();
+        int left = 0 , right = 0; //left pointer , right pointer
+        int count = 0;
+        int prod = 1;
+        if(k <= 1) return 0;
+        while(right < n) {
+            prod = prod*nums[right];
+            while(prod >= k) {
+                prod = prod/nums[left++];
             }
-            count = count+(i-j)+1;   
+            count += (right-left+1);// no.of subarrays ending at pointer RIGHT
+            right++;
         }
-     
         return count;
     }
 };
