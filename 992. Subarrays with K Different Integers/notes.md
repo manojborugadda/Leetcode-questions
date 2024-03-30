@@ -1,0 +1,1 @@
+https://leetcode.com/problems/subarrays-with-k-different-integers/solutions/4945306/counting-subarrays-with-exactly-k-distinct-integers-a-sliding-window-adventure/?envType=daily-question&envId=2024-03-30
