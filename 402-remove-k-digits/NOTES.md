@@ -1,3 +1,4 @@
+```
 class Solution {
 public:
 string removeKdigits(string num, int k)
@@ -30,4 +31,4 @@ return "0" ;
 return ans ;
 }
 };
-"""
+```
