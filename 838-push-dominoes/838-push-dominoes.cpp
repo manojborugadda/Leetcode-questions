@@ -1,54 +1,47 @@
-class Solution {  //TC:O(N)  SC:O(N)
+class Solution {
 public:
     string pushDominoes(string dominoes) {
-        int n = dominoes.length();
-        vector<char>ans(n);
-        vector<int>left(n,0), right(n,0);
-        int nearestLeftIndex = -1 , nearestRightIndex = -1;
+        int n = dominoes.size();
+        vector<int> forces(n, 0);
         
-        //left vector having the NearestLeftIndices
-        for(int i = n-1;i>=0;i--) {
-            if(dominoes[i] == 'L') {
-                nearestLeftIndex = i;
-            }else if(dominoes[i] == 'R') {
-                nearestLeftIndex = -1;
+        // Calculate forces from right-pushing dominoes
+        int force = 0;
+        for (int i = 0; i < n; i++) {
+            if (dominoes[i] == 'R') {
+                force = n; // Set a high force value
+            } else if (dominoes[i] == 'L') {
+                force = 0; // No force
+            } else if (force > 0) {
+                force--; // Reduce force as it propagates
             }
-            left[i] = nearestLeftIndex;
+            forces[i] += force;
         }
         
-        //right vector having the NearestRightIndices
-        for(int i  = 0;i<n;i++) {
-            if(dominoes[i] == 'L') {
-                nearestRightIndex = -1;
-            }else if(dominoes[i] == 'R') {
-                nearestRightIndex = i;
+        // Calculate forces from left-pushing dominoes
+        force = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (dominoes[i] == 'L') {
+                force = n; // Set a high force value
+            } else if (dominoes[i] == 'R') {
+                force = 0; // No force
+            } else if (force > 0) {
+                force--; // Reduce force as it propagates
             }
-            right[i] = nearestRightIndex;
+            forces[i] -= force;
         }
         
-        //checking for the nearest index for each character in the Dominoes
-        for(int i = 0;i<n;i++) {
-            if(dominoes[i] == '.') {
-            int nearestLeft = left[i];
-            int nearestRight = right[i];
-            
-            int leftDiff = nearestLeft == -1 ? INT_MAX : abs(nearestLeft - i);
-            int rightDiff = nearestRight == -1 ? INT_MAX : abs(nearestRight - i);
-            
-            if(leftDiff == rightDiff) {
-                ans[i] = '.';
-            }else if(leftDiff < rightDiff) {
-                ans[i] = 'L';
-            }else if(leftDiff > rightDiff) {
-                ans[i] = 'R';
+        // Determine final state of dominoes
+        string result;
+        for (int i = 0; i < n; i++) {
+            if (forces[i] > 0) {
+                result += 'R';
+            } else if (forces[i] < 0) {
+                result += 'L';
+            } else {
+                result += '.';
             }
-                
-            } else{
-                ans[i] = dominoes[i];
-            }
-    }
-        //vector of characters into string
-        string s(ans.begin(), ans.end());
-        return s;
+        }
+        
+        return result;
     }
 };
