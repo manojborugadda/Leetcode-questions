@@ -1,24 +1,23 @@
-class Solution {
+class Solution {//TC:O(2.N)  SC:O(1)
 public:
-    int diff(vector<int>& tops, vector<int>& bottoms,int num){
-        int top = 0,bottom = 0;
-        for(int i = 0;i<tops.size();i++){
-            if(tops[i]!=num and bottoms[i]!=num){
-                return -1;  //if any value for num is not present at ith position of row and column than immediately return -1
+    int minDominoRotations(vector<int>& tops, vector<int>& bottoms) {
+        int n = tops.size();
+        vector<int>target = {tops[0],bottoms[0]};
+        for(int num: target) {
+            int missA = 0, missB = 0; // indicates the missing values in both top and bottom vectors
+            bool valid = true;
+            for(int i = 0;i<n;i++) {
+                if(tops[i] != num and bottoms[i] != num) {
+                    valid = false;
+                    break;
+                }
+                if(tops[i] != num) missA++;
+                if(bottoms[i] != num) missB++;
             }
-            if(tops[i]!=num){
-                top++;
-            }
-            if(bottoms[i]!=num){
-                bottom++;
-            }
+            if(valid) return min(missA,missB);
         }
-         return min(top,bottom);
-    }
-    
-    int minDominoRotations(vector<int>& tops, vector<int>& bottoms){
-        int swap1 = diff(tops,bottoms,tops[0]);
-        int swap2 = diff(tops,bottoms,bottoms[0]);
-         return( min(swap1,swap2) < 0 ) ? max(swap1,swap2) : min(swap1,swap2); //if swap is less than 0 then return max value to get positive value
+        return -1;
     }
 };
+//we can traverse for all numbers 0 - 6 but we can take these beginning elements in both the vectors 
+// instead of TC:(6.N) we can solve this in O(2.N)
